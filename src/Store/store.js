@@ -9,7 +9,7 @@ const initState = {
     lastName: "",
     creditBalance: 50.0,
   },
-  cart: [{}]
+  cart: [],
 };
 
 export const LOGIN = "LOGIN";
@@ -30,7 +30,7 @@ const reducer = (state, action) => {
       return { user: action.payload };
     case LOGOUT:
       localStorage.removeItem("user");
-      return { accessToken: '', user: {} };
+      return { accessToken: "", user: {} };
     case GET_USER:
       return { ...state, user: action.payload };
     case SIGNUP:
@@ -40,13 +40,24 @@ const reducer = (state, action) => {
     case LASTNAME:
       return { ...state, user: action.payload };
     case CREDITBALANCE:
-      return { ...state, user: { ...state.user, user: { ...state.user, creditBalance: action.payload } } };
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          user: { ...state.user, creditBalance: action.payload },
+        },
+      };
     case UPDATEUSER:
       return { ...state, user: { ...state.user, user: action.payload } };
     case ADDBOOK:
       return { ...state, cart: [...state.cart, action.payload] };
     case REMOVEBOOK:
-      return { ...state, cart: action.payload };
+      return {
+        ...state.cart,
+        cart: state.cart.filter((item) => item !== action.payload),
+      };
+
+
     default:
       return state;
   }

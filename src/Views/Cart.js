@@ -1,13 +1,7 @@
 import React from "react";
-import {
-  Card,
-  ListGroup,
-  ListGroupItem,
-  Image,
-  Button,
-} from "react-bootstrap";
+import { Card, ListGroup, ListGroupItem, Image, Button } from "react-bootstrap";
 import { useStore, REMOVEBOOK } from "../Store/store";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 function Cart() {
   const dispatch = useStore((state) => state.dispatch);
@@ -16,27 +10,33 @@ function Cart() {
 
   return (
     <>
+      {console.log(cart)}
       <h1>Your Cart</h1>
-      <div className='checkoutBox'>
+      <div className="checkoutBox">
         <div className="checkout">
-          {cart.slice(1, cart.length).forEach((bookInCart) => {
+          {cart.forEach((bookInCart) => {
+            console.log(bookInCart);
             cartTotal += bookInCart.PurchasePrice;
           })}
-
         </div>
         <Card style={{ width: "250px" }}>
           <Card.Header>Checkout</Card.Header>
           <Card.Body>
             <Card.Title>Cart Total: ${cartTotal.toFixed(2)}</Card.Title>
-            <Card.Title>{cartTotal.toFixed(2) < 50 ? '' : <h4 style={{ color: 'red' }}>Not Enough Credits</h4>}</Card.Title>
-            <Link to='/ThankYouPage'>
-              <Button variant="outline-dark"
-              >Checkout</Button>
+            <Card.Title>
+              {cartTotal.toFixed(2) < 50 ? (
+                ""
+              ) : (
+                <h4 style={{ color: "red" }}>Not Enough Credits</h4>
+              )}
+            </Card.Title>
+            <Link to="/ThankYouPage">
+              <Button variant="outline-dark">Checkout</Button>
             </Link>
           </Card.Body>
         </Card>
       </div>
-      {cart.slice(1, cart.length).map((book) => {
+      {cart.map((book) => {
         return (
           <div className="shoppingCart">
             <div
@@ -68,11 +68,15 @@ function Cart() {
                 </Card.Body>
                 <Card.Footer className="text-muted">
                   <Button
+                    type="submit"
                     variant="outline-dark"
                     style={{ marginTop: "4px" }}
-                    onClick={() => {
+                    onClick={(e) => {
+                      e.preventDefault();
                       cart.splice(cart.indexOf(book), 1);
+                      console.log("deleted:", cart.indexOf(book), 1);
                       dispatch({ type: REMOVEBOOK, payload: cart });
+                      console.log("after dispatch:", cart);
                     }}
                   >
                     Remove
@@ -83,7 +87,6 @@ function Cart() {
           </div>
         );
       })}
-
     </>
   );
 }
