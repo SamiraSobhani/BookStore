@@ -21,19 +21,16 @@ function NavBar() {
 
   return (
     <>
-      <Navbar variant="dark" expand="lg" style={{ backgroundColor: "#caebb7" }}>
+      <Navbar variant="dark" expand="lg">
         <Navbar.Brand>
           <Link to="/" style={{ textDecoration: "none" }}>
-            <h3 style={{ color: "grey", fontFamily: "Lucida Console" }}>
-              Second Chapter
-            </h3>
+            <h3 className="logo">Book Store</h3>
           </Link>
         </Navbar.Brand>
         <Form inline></Form>
         <NavDropdown
           title={user.accessToken ? `Hi, ${user.user.firstName}` : "My Account"}
           id="basic-nav-dropdown"
-          style={{ marginLeft: "70%" }}
         >
           <NavDropdown.Item to="#action/3.4">
             <div className="signInButton">
@@ -89,34 +86,31 @@ function NavBar() {
         {user.accessToken ? <h5>{cart.length}</h5> : ""}
       </Navbar>
 
-      <Navbar
-        variant="light"
-        style={{ backgroundColor: "#caebb7", fontFamily: "Lucida Console" }}
-      >
+      <Navbar variant="light">
         <Nav className="mr-auto" style={{ margin: "auto" }}>
-          <Link to="/Allbooks" style={{ color: "grey" }}>
-            <h4>| All |</h4>
+          <Link to="/Allbooks">
+            <h4 className="navbar-items"> All </h4>
           </Link>
-          <Link to="/AllArtBooks" style={{ color: "grey" }}>
-            <h4>| Art |</h4>
+          <Link to="/AllArtBooks">
+            <h4 className="navbar-items"> Art </h4>
           </Link>
-          <Link to="/AllCodingBooks" style={{ color: "grey" }}>
-            <h4>| Coding |</h4>
+          <Link to="/AllCodingBooks">
+            <h4 className="navbar-items"> Coding </h4>
           </Link>
-          <Link to="/AllCookingBooks" style={{ color: "grey" }}>
-            <h4>| Cooking |</h4>
+          <Link to="/AllCookingBooks">
+            <h4 className="navbar-items"> Cooking </h4>
           </Link>
-          <Link to="/AllHistoryBooks" style={{ color: "grey" }}>
-            <h4>| History |</h4>
+          <Link to="/AllHistoryBooks">
+            <h4 className="navbar-items"> History </h4>
           </Link>
-          <Link to="/AllMathBooks" style={{ color: "grey" }}>
-            <h4>| Math |</h4>
+          <Link to="/AllMathBooks">
+            <h4 className="navbar-items"> Math </h4>
           </Link>
-          <Link to="/AllPetsBooks" style={{ color: "grey" }}>
-            <h4>| Pets |</h4>
+          <Link to="/AllPetsBooks">
+            <h4 className="navbar-items"> Pets </h4>
           </Link>
-          <Link to="/Searchresult" style={{ color: "grey" }}>
-            <h4>| Search |</h4>
+          <Link to="/Searchresult">
+            <h4 className="navbar-items"> Search </h4>
           </Link>
         </Nav>
         <Form inline></Form>

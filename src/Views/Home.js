@@ -1,9 +1,8 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
-import ImageOne from "../img/book image 1.jpeg";
-import ImageTwo from "../img/book image 2.jpeg";
-import ImageThree from "../img/book image 3.jpeg";
-
+import ImageOne from "../img/img5.jpg";
+import ImageTwo from "../img/img11.jpg";
+import ImageThree from "../img/img8.jpg";
 import { Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { BooksArray } from "../Components/BooksArray";
@@ -15,17 +14,26 @@ function Home() {
       <div className="homeCarousel">
         <Carousel fade>
           <Carousel.Item interval={4000}>
-            <img className="d-block w-100" src={ImageOne} alt="First slide" />
+            <img className="d-block w-100 carouselimg" src={ImageOne} alt="First slide" />
           </Carousel.Item>
           <Carousel.Item interval={4000}>
-            <img className="d-block w-100" src={ImageTwo} alt="Second slide" />
+            <img className="d-block w-100 carouselimg" src={ImageTwo} alt="Second slide" />
           </Carousel.Item>
           <Carousel.Item interval={4000}>
-            <img className="d-block w-100" src={ImageThree} alt="Third slide" />
+            <img className="d-block w-100 carouselimg" src={ImageThree} alt="Third slide" />
           </Carousel.Item>
+          {/* <Carousel.Item interval={4000}>
+            <img className="d-block w-100" src={ImageFour} alt="Third slide" />
+          </Carousel.Item>
+          <Carousel.Item interval={4000}>
+            <img className="d-block w-100" src={ImageFive} alt="Third slide" />
+          </Carousel.Item>
+          <Carousel.Item interval={4000}>
+            <img className="d-block w-100" src={ImageSix} alt="Third slide" />
+          </Carousel.Item> */}
         </Carousel>
       </div>
-      <h1>Now Trending</h1>
+      <h1 className="bookshelf-header">Now Trending</h1>
       <hr />
 
       <div className="bookshelf">
