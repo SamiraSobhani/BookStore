@@ -19,7 +19,7 @@ function Cart() {
             cartTotal += bookInCart.PurchasePrice;
           })}
         </div>
-        <Card style={{ width: "250px" }}>
+        <Card className="checkout-card">
           <Card.Header>Checkout</Card.Header>
           <Card.Body>
             <Card.Title>Cart Total: ${cartTotal.toFixed(2)}</Card.Title>

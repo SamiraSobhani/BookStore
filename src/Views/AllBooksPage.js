@@ -4,7 +4,6 @@ import { BooksArray } from "../Components/BooksArray";
 import Card from "react-bootstrap/Card";
 
 function AllBooksPage(props) {
-
   return (
     <>
       <h3>All Books</h3>
@@ -15,9 +14,7 @@ function AllBooksPage(props) {
             console.log(book.Title);
           }
           return (
-            <Card
-              style={{ width: "15rem", height: "36rem", marginBottom: "20px" }}
-            >
+            <Card>
               {console.log(book.Title)}
               <Link to={"./SingleBookInfo/" + book.id}>
                 <Card.Img

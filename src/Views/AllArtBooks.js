@@ -12,13 +12,7 @@ function AllBooksPage() {
         {BooksArray.map((book) => {
           if (book.Category === "art") {
             return (
-              <Card
-                style={{
-                  width: "15rem",
-                  height: "36rem",
-                  marginBottom: "20px",
-                }}
-              >
+              <Card>
                 {console.log(book.Title)}
                 <Link to={"./SingleBookInfo/" + book.id}>
                   <Card.Img

@@ -14,13 +14,25 @@ function Home() {
       <div className="homeCarousel">
         <Carousel fade>
           <Carousel.Item interval={4000}>
-            <img className="d-block w-100 carouselimg" src={ImageOne} alt="First slide" />
+            <img
+              className="d-block w-100 carouselimg"
+              src={ImageOne}
+              alt="First slide"
+            />
           </Carousel.Item>
           <Carousel.Item interval={4000}>
-            <img className="d-block w-100 carouselimg" src={ImageTwo} alt="Second slide" />
+            <img
+              className="d-block w-100 carouselimg"
+              src={ImageTwo}
+              alt="Second slide"
+            />
           </Carousel.Item>
           <Carousel.Item interval={4000}>
-            <img className="d-block w-100 carouselimg" src={ImageThree} alt="Third slide" />
+            <img
+              className="d-block w-100 carouselimg"
+              src={ImageThree}
+              alt="Third slide"
+            />
           </Carousel.Item>
           {/* <Carousel.Item interval={4000}>
             <img className="d-block w-100" src={ImageFour} alt="Third slide" />
@@ -34,35 +46,28 @@ function Home() {
         </Carousel>
       </div>
       <h1 className="bookshelf-header">Now Trending</h1>
-      <hr />
+      {/* <hr /> */}
 
       <div className="bookshelf">
         {BooksArray.map((book) => {
           if (book.id <= 4) {
             return (
-              <Card
-                style={{
-                  width: "15rem",
-                  height: "36rem",
-                  marginBottom: "20px",
-                }}
-              >
-                {/* {console.log(book.Title)} */}
+              <Card>
                 <Link to={"./SingleBookInfo/" + book.id}>
                   <Card.Img
                     key={book.id}
                     variant="top"
                     src={book.imageUrl}
-                    style={{ height: "320px" }}
+                    style={{ height: "300px", filter: "grayscale(0)" }}
                   />
                 </Link>
                 <Card.Body>
                   <Card.Title>{book.Title}</Card.Title>
-                  <Card.Text>Author: {book.Author}</Card.Text>
+                  <Card.Text>Author : {book.Author}</Card.Text>
                 </Card.Body>
               </Card>
             );
-          } else return;
+          }
         })}
       </div>
     </div>

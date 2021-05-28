@@ -5,9 +5,8 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
-  <BrowserRouter basename="/kapstone-frontend-book-resale">
+  <BrowserRouter basename="/bookstore">
     <App />
   </BrowserRouter>,
   document.getElementById("root")
 );
-
