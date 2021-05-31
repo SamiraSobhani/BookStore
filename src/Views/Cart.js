@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, ListGroup, ListGroupItem, Image, Button } from "react-bootstrap";
-import { useStore, REMOVEBOOK } from "../Store/store";
+import { useStore, REMOVEBOOK, CHECKOUT } from "../Store/store";
 import { Link } from "react-router-dom";
 
 function Cart() {
@@ -31,7 +31,15 @@ function Cart() {
               )}
             </Card.Title>
             <Link to="/ThankYouPage">
-              <Button variant="outline-dark">Checkout</Button>
+              <Button
+                variant="outline-dark"
+                onClick={(e) => {
+                  console.log("inside checkout function");
+                  dispatch({ type: CHECKOUT });
+                }}
+              >
+                Checkout
+              </Button>
             </Link>
           </Card.Body>
         </Card>

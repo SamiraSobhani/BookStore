@@ -20,7 +20,7 @@ export const LASTNAME = "LASTNAME";
 export const CREDITBALANCE = "CREDITBALANCE";
 export const UPDATEUSER = "UPDATEUSER";
 export const SIGNUP = "SIGNUP";
-
+export const CHECKOUT = "CHECKOUT";
 export const ADDBOOK = "ADDBOOK";
 export const REMOVEBOOK = "REMOVEBOOK";
 
@@ -56,7 +56,8 @@ const reducer = (state, action) => {
         ...state.cart,
         cart: state.cart.filter((item) => item !== action.payload),
       };
-
+    case CHECKOUT:
+      return { cart: (state.cart = []) };
 
     default:
       return state;
