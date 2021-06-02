@@ -7,7 +7,6 @@ import { getUser, deleteUser } from "../fetchRequest";
 import { useHistory } from "react-router-dom";
 
 function UserProfile() {
-
   const dispatch = useStore((state) => state.dispatch);
   const history = useHistory();
 
@@ -15,7 +14,7 @@ function UserProfile() {
   const [user, setUser] = useState({
     firstName: "",
     lastName: "",
-    creditBalance: 50.0,
+    creditBalance: 100.0,
   });
 
   function handleSubmit(e) {
@@ -40,49 +39,11 @@ function UserProfile() {
       <h1>{userInfo.user.firstName}'s Profile</h1>
       <hr />
       <div className="userProfile">
-        <Card border="light" style={{ width: "18rem", marginBottom: "20px" }}>
-          <Card.Body>
-            <Card.Title>Account Settings</Card.Title>
-            <Card.Text>
-              First Name: {userInfo.user.firstName}
-              <br />
-              Last Name: {userInfo.user.lastName}
-              <br />
-              Email: {userInfo.user.email}
-            </Card.Text>
-            <Button onSubmit={handleSubmit} variant="outline-dark">
-              <Link to="/AccountSettings" style={{ color: "black" }}>
-                Edit Account Settings
-              </Link>
-            </Button>
-          </Card.Body>
-        </Card>
-
-        <Card border="light" style={{ width: "18rem", marginBottom: "20px" }}>
-          <Card.Body>
-            <Card.Title>Delete Account</Card.Title>
-            <Button
-              variant="outline-dark"
-              type="submit"
-              style={{ marginTop: "20px" }}
-              onClick={handleDelete}
-            >
-              Delete Account
-          </Button>
-          </Card.Body>
-        </Card>
-
-        <Card border="light" style={{ width: "18rem", marginBottom: "20px" }}>
-          <Card.Body>
-            <Card.Title>Credit Balance</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">Currency</Card.Subtitle>
-            <Card.Text>
-              <h2>${userInfo.user.creditBalance}</h2>
-            </Card.Text>
-          </Card.Body>
-        </Card>
-
-        <Card border="light" style={{ width: "18rem", marginBottom: "20px" }}>
+        <Card
+          border="light"
+          className="profile-cards"
+          style={{ width: "18rem", marginBottom: "20px" }}
+        >
           <Card.Body>
             <Card.Title>Address Book</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">
@@ -97,11 +58,65 @@ function UserProfile() {
               <br />
               Zip Code:
             </Card.Text>
-            <Button variant="outline-dark">
+            <Button variant="outline-dark" className="profile-buttons">
               <Link to="/AddressPage" style={{ color: "black" }}>
                 Add/Update Address
               </Link>
             </Button>
+          </Card.Body>
+        </Card>
+
+        <Card
+          border="light"
+          className="profile-cards"
+          style={{ width: "18rem", marginBottom: "20px" }}
+        >
+          <Card.Body>
+            <Card.Title>Account Settings</Card.Title>
+            <Card.Text>
+              First Name: {userInfo.user.firstName}
+              <br />
+              Last Name: {userInfo.user.lastName}
+              <br />
+              Email: {userInfo.user.email}
+            </Card.Text>
+            <Button
+              className="profile-buttons"
+              onSubmit={handleSubmit}
+              variant="outline-dark"
+            >
+              <Link to="/AccountSettings" style={{ color: "black" }}>
+                Edit Account Settings
+              </Link>
+            </Button>
+          </Card.Body>
+        </Card>
+
+        <Card
+          border="light"
+          className="profile-cards"
+          style={{ width: "18rem", marginBottom: "20px" }}
+        >
+          <Card.Body>
+            <Card.Title>Delete Account</Card.Title>
+            <Button
+              className="profile-buttons"
+              variant="outline-dark"
+              type="submit"
+              onClick={handleDelete}
+            >
+              Delete Account
+            </Button>
+          </Card.Body>
+        </Card>
+
+        <Card border="light" className="profile-cards">
+          <Card.Body>
+            <Card.Title>Credit Balance</Card.Title>
+            <Card.Subtitle className="mb-2 text-muted">Currency</Card.Subtitle>
+            <Card.Text>
+              <h2>${userInfo.user.creditBalance}</h2>
+            </Card.Text>
           </Card.Body>
         </Card>
       </div>

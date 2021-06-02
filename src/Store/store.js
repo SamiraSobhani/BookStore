@@ -7,7 +7,7 @@ const initState = {
     email: "",
     firstName: "",
     lastName: "",
-    creditBalance: 50.0,
+    creditBalance: 100.0,
   },
   cart: [],
 };

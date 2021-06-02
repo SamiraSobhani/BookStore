@@ -24,7 +24,7 @@ function Cart() {
           <Card.Body>
             <Card.Title>Cart Total: ${cartTotal.toFixed(2)}</Card.Title>
             <Card.Title>
-              {cartTotal.toFixed(2) < 50 ? (
+              {cartTotal.toFixed(2) < 100 ? (
                 ""
               ) : (
                 <h4 style={{ color: "red" }}>Not Enough Credits</h4>
