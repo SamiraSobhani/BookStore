@@ -85,7 +85,7 @@ function SignUpPage() {
   };
 
   const handleSubmit = (e) => {
-    const reRoute = (e) => history.push("/");
+    const reRoute = (e) => history.push("/LogInPage");
     console.log(
       userData.firstName,
       userData.lastName,
