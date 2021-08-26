@@ -1,6 +1,6 @@
 # Book Store
 
-A single page application for selling the books. Using react and NodeJs. 
+A single page application for selling the books. Using react and NodeJs
 
 ![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/64378067/120707092-c0801c00-c46e-11eb-9760-569f55a84d0a.gif)
 
